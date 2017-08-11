@@ -20,13 +20,10 @@
     transform: translateY(-100%);
   }
 
-  &__info {
-    max-width: 670px;
-    padding: 90px 40px;
-    text-align: center;
+  p {
+    margin-bottom: 30px;
+    background-color: rgba(46, 63, 80, .8);
   }
-
-  p { margin-bottom: 30px }
 
   &__title {
     display: block;
@@ -34,6 +31,7 @@
     font-size: 30px;
     line-height: 1.5em;
     text-transform: uppercase;
+    background-color: rgba(0, 125, 197, .8);
     @include main-font();
   }
 
@@ -42,98 +40,31 @@
     height: 100%;
 
     .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-color: rgba(0,0,0,.8);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
     }
 
-    .swiper-button-next,
-    .swiper-button-prev {
-      overflow: hidden;
-      width: 30px;
-      height: 60px;
-      background: #fff;
-      color: #000;
-      font-size: 30px;
-      transition: color .3s ease-in-out;
+    .swiper-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      &:hover { color: #fff }
-
-      i {
-        @include absoluteCenter();
+      &-bullet {
+        width: 14px;
+        height: 14px;
+        margin: 0 8px;
+        opacity: 1;
+        border-radius: 0;
+        border: 2px solid #ffffff;
+        background-color: #ffffff;
+        transition: background .3s ease-in-out;
       }
 
-      &:before {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        content: '';
+      &-bullet-active {
+        background-color: #f15e22;
       }
-    }
-
-    .swiper-button-next {
-      right: 0;
-
-      &:before {
-        right: 100%;
-        transition: right .3s ease-in-out;
-      }
-
-      &:hover {
-
-        i { animation: next-animate .4s linear }
-
-        &:before { right: 0 }
-      }
-    }
-
-    .swiper-button-prev {
-      left: 0;
-
-      i {
-        transition: left .3s ease-in-out;
-      }
-
-      &:before {
-        left: 100%;
-        transition: left .3s ease-in-out;
-      }
-
-      &:hover {
-
-        i { animation: prev-animate .4s linear }
-
-        &:before {
-          left: 0;
-        }
-      }
-    }
-  }
-
-  .swiper-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &-bullet {
-      width: 14px;
-      height: 14px;
-      margin: 0 8px;
-      opacity: 1;
-      border-radius: 0;
-      border: 2px solid #ffffff;
-      background-color: #ffffff;
-      transition: background .3s ease-in-out;
-    }
-
-    &-bullet-active {
-      background-color: #f15e22;
     }
   }
 }
