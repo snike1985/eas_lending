@@ -2,7 +2,7 @@
 .main-slider {
   display: block;
   width: 100%;
-  height: 100vh;
+  height: 520px;
   z-index: 1;
   color: #fff;
   font-size: 14px;
@@ -21,18 +21,61 @@
   }
 
   p {
+    position: relative;
+    left: -30px;
+    width: calc(50% + 47px);
+    padding: 23px 10px 27px calc(50% - 458px);
     margin-bottom: 30px;
-    background-color: rgba(46, 63, 80, .8);
+    font-size: 14px;
+    line-height: 22px;
+    transform: translate(-100%, 0);
+    transition: transform .3s ease-in-out .3s;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(46, 63, 80, .8);
+      transform: matrix(1,0,-.5,1,0,0);
+      content: '';
+    }
   }
 
   &__title {
     display: block;
-    margin-bottom: 13px;
-    font-size: 30px;
-    line-height: 1.5em;
-    text-transform: uppercase;
-    background-color: rgba(0, 125, 197, .8);
+    position: relative;
+    left: -30px;
+    width: calc(50% - 49px);
+    padding: 12px 10px 16px calc(50% - 461px);
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 700;
     @include main-font();
+    transform: translate(-100%, 0);
+    transition: transform .3s ease-in-out;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 125, 197, .8);
+      transform: matrix(1,0,-.5,1,0,0);
+      content: '';
+    }
   }
 
   .swiper-container {
@@ -40,16 +83,29 @@
     height: 100%;
 
     .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px 0 78px;
       background-color: rgba(0,0,0,.8);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+
+      &-active {
+
+        .main-slider__title,
+        p {
+          transform: translate(0);
+        }
+      }
     }
 
     .swiper-pagination {
       display: flex;
       align-items: center;
       justify-content: center;
+      bottom: 30px;
 
       &-bullet {
         width: 14px;
@@ -77,25 +133,7 @@
 
 @media (min-width: $tablet-landscape) {
   .main-slider {
-    font-size: 24px;
 
-    &__info {
-      padding: 90px 80px;
-    }
-
-    &__title {
-      font-size: 60px;
-    }
-
-    .swiper-container {
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        width: 67px;
-        height: 67px;
-        font-size: 60px;
-      }
-    }
   }
 }
 
